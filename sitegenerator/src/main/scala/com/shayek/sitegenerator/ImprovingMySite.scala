@@ -19,7 +19,7 @@ object ImprovingMySite {
 
   val navBar = div(cls := "container my-3",
     nav(cls := "navbar navbar-expand-lg navbar-light bg-light mb-4",
-      a(cls := "navbar-brand", href := "../index.html", "My Blog"),
+      a(cls := "navbar-brand", href := "../index.html", "Dashboard"),
       ul(cls := "navbar-nav",
         li(cls := "nav-item", a(cls := "nav-link", href := "../index.html", "Home")),
         li(cls := "nav-item", a(cls := "nav-link", href := "../about.html", "About")),
@@ -96,7 +96,7 @@ object ImprovingMySite {
         body(
           div(cls := "container my-4",
             navBar,
-            h1("Welcome to My Programmer Blog"),
+            h1("Welcome to my Scala Site"),
             div(cls := "row",
               articles.map { case metaDetails(slug, filename, dateOfPublish) =>
                 div(cls := "col-md-6 mb-4",
