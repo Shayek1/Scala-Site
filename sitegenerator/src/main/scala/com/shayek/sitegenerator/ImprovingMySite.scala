@@ -115,8 +115,9 @@ object ImprovingMySite {
     )
 
     // Generate About and Contact pages
-    generateStaticPage(outPath, "about", h1("About Me"), p("This is the About page. Add your bio here."))
-    generateStaticPage(outPath, "contact", h1("Contact"), p("This is the Contact page. Add your contact info here."))
+    generateStaticPage(outPath, "about", h1("About this site"), p("The site is built using Scala and a simple static generation workflow, so every post you read is written in Markdown and transformed into a clean, responsive page."))
+    generateStaticPage(outPath, "contact", h1("Contact"), p("Checkout my: ", a(href := "https://github.com/Shayek1", target := "_blank", "GitHub!"))
+    )
   }
 
   def main(args: Array[String]): Unit = blogRender()
