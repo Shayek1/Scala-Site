@@ -19,11 +19,11 @@ object ImprovingMySite {
 
   val navBar = div(cls := "container my-3",
     nav(cls := "navbar navbar-expand-lg navbar-light bg-light mb-4",
-      a(cls := "navbar-brand", href := "../index.html", "Dashboard"),
+      a(cls := "navbar-brand", href := "/index.html", "Dashboard"),
       ul(cls := "navbar-nav",
-        li(cls := "nav-item", a(cls := "nav-link", href := "../index.html", "Home")),
-        li(cls := "nav-item", a(cls := "nav-link", href := "../about.html", "About")),
-        li(cls := "nav-item", a(cls := "nav-link", href := "../contact.html", "Contact"))
+        li(cls := "nav-item", a(cls := "nav-link", href := "/index.html", "Home")),
+        li(cls := "nav-item", a(cls := "nav-link", href := "/about.html", "About")),
+        li(cls := "nav-item", a(cls := "nav-link", href := "/contact.html", "Contact"))
       )
     )
   )
