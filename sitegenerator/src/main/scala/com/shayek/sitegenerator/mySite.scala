@@ -7,10 +7,12 @@ import org.commonmark.parser.Parser
 
 import java.time.*
 
+case class Details(slug: String, name: String, date: LocalDate)
 object mySite {
   def postRender(path: Path, outPath: Path) = {
     //take in the file name
-    val s"$filename.md" = path.last //this makes it so the name of the file is registered as the name without ".md"
+    //val s"$filename.md" =path.last //this makes it so the name of the file is registered as the name without ".md"
+    val filename = path.last.stripSuffix(".md")
     val dateOfPublish = LocalDate.ofInstant(
       Instant.ofEpochMilli(os.mtime(path)),
       ZoneOffset.UTC
@@ -38,7 +40,7 @@ object mySite {
       )
     )
 
-    (slugPage, dateOfPublish)
+    Details(slugPage,filename,dateOfPublish)
   }
 
   def blogRender() ={
@@ -55,7 +57,7 @@ object mySite {
 
     //page generation
     val articles = os.list(blogRoot).map(filePath => postRender(filePath, outPath))
-      .sortBy(_._2)
+      .sortBy(_.date) //this will render the latest modified posts
 
     //index.html generation
     os.write(
@@ -67,8 +69,12 @@ object mySite {
         body(
           h1("This is my site"),
           articles.map{
-            case (slug, dateofPublish) => h2(
-              a(href := s"article/ $slug")
+            case Details(slug, filename ,dateofPublish) => h2(
+              a(
+                href := s"article/$slug",
+                filename
+
+              )
             )
           }
         )
