@@ -3,7 +3,7 @@ package com.shayek.sitegenerator
 object SiteServer extends cask.MainRoutes {
   override val port = 3324
 
-  mySite.blogRender()
+  ImprovingMySite.blogRender()
 
   val resourcePath = os.pwd/"sitegenerator"/"src"/"main"/"resources"
   val staticDir = resourcePath / "blogOut"
