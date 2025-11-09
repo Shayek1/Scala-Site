@@ -1,9 +1,6 @@
 # Second post
 
-
-## Second Section
-
-Another section with a list:
+Another post with a list:
 
 - first item
 - second item
