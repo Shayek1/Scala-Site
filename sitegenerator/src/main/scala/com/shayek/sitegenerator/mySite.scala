@@ -1,10 +1,9 @@
 package com.shayek.sitegenerator
 
-import os.*
+import os.{rel => _, *} // => _ allows you to exclude something from an import
 import scalatags.Text.all.{p, *}
 import org.commonmark.renderer.html.HtmlRenderer
 import org.commonmark.parser.Parser
-
 import java.time.*
 
 case class Details(slug: String, name: String, date: LocalDate)
@@ -30,7 +29,10 @@ object mySite {
       outPath / "article" / slugPage ,
       html(
         head(
-          //TODO add same css file
+          link(
+            rel := "stylesheet",
+            href := "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          )
         ),
         body(
         a(href := "../index.html", "<- Back"),
@@ -64,7 +66,10 @@ object mySite {
       outPath / "index.html",
       html(
         head(
-          //TODO add a css file here
+          link(
+            rel := "stylesheet",
+            href := "https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          )
         ),
         body(
           h1("This is my site"),
